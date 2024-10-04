@@ -8,7 +8,10 @@
     {
       client = new HttpClient();
     }
-    public async Task<string> getRequest(string url)
+    public async Task<string> getRequest(
+      string url, 
+      RequestType requestType = RequestType.GET
+      )
     {
 
       try

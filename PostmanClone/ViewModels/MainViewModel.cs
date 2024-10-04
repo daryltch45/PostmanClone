@@ -10,14 +10,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using PostmanClone.Utilities;
-using System.Net.Http;
-using System.Threading.Tasks;
+using PostmanClone.Request; 
 using System.Windows;
-using PostmanClone.Request;
 
 namespace PostmanClone.ViewModels
 {
-  enum RequestType { GET, POST, SET, PUT }
+
   class MainViewModel : INotifyCollectionChanged, INotifyPropertyChanged
   {
     #region Properties 
@@ -78,13 +76,13 @@ namespace PostmanClone.ViewModels
       }
     }
 
-    private readonly APIaccess api; 
+    private readonly IAPIaccess api;
     #endregion Properties
 
 
     #region Commands
 
-    public ICommand CopyToClipboardCommand { get;  }
+    public ICommand CopyToClipboardCommand { get; }
     public ICommand SendRequestCommand
     {
       get;
@@ -93,33 +91,37 @@ namespace PostmanClone.ViewModels
 
     public MainViewModel()
     {
+      api = new APIaccess();
       _requestTypes = new ObservableCollection<string>(
         Enum.GetNames(typeof(RequestType))
         );
 
       _selectedRequestType = RequestType.GET.ToString();
 
-      api = new(); 
 
       SendRequestCommand = new RelayCommand(
           async (_) =>
           {
 
-            if (!string.IsNullOrEmpty(_requestUrl))
+            if (!api.IsValidUrl(_requestUrl))
             {
-              try
-              {
-                ResponseBody = await api.getRequest(_requestUrl);
-              }
-              catch (Exception ex)
-              {
-                MessageBox.Show(ex.Message);
-              }
+              MessageBox.Show("Invalid URL..");
+              return; 
             }
-            else
+
+            try
             {
-              MessageBox.Show("URL is empty !");
+              ResponseBody = await api.getRequest
+              (
+                _requestUrl, 
+              RequestType.GET
+              );
             }
+            catch (Exception ex)
+            {
+              MessageBox.Show(ex.Message);
+            }
+
 
           }
 
@@ -135,7 +137,7 @@ namespace PostmanClone.ViewModels
 
     #region Fonctions
     private void CreateCommands() { }
-   
+
 
 
     protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
