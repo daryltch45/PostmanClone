@@ -1,32 +1,29 @@
-﻿namespace PostmanClone.Request
+﻿using System;
+
+namespace PostmanClone.Request
 {
   public class APIaccess : IAPIaccess
   {
-    private readonly HttpClient client;
-
-    public APIaccess()
-    {
-      client = new HttpClient();
-    }
-    public async Task<string> getRequest(
+    public async Task<string> makeRequest
+      (
       string url, 
-      RequestType requestType = RequestType.GET
+      StringContent data, 
+      RequestType requestType
       )
     {
-
-      try
+      string response = string.Empty; 
+      switch( requestType )
       {
-        HttpResponseMessage response = await client.GetAsync(url);
-
-        string responseData = await response.Content.ReadAsStringAsync();
-
-        return responseData;
-      }
-      catch (HttpRequestException e)
-      {
-        return "Request Error";
+        case RequestType.GET:
+          response = await new GetRequest().makeRequest(url);
+          break;
+        
+        case RequestType.POST:
+          response = await new PostRequest().makeRequest(url, data);
+          break; 
       }
 
+      return response;
     }
 
     public bool IsValidUrl(string url)
@@ -38,6 +35,5 @@
 
       return output;
     }
-
   }
 }

@@ -3,10 +3,12 @@
   public enum RequestType { GET, POST, SET, PUT }
   public interface IAPIaccess
   {
-    Task<string> getRequest(
-      string url, 
+    Task<string> makeRequest(
+      string url,
+      StringContent data,
       RequestType requestType
       );
-    bool IsValidUrl(string url);
+
+    public bool IsValidUrl(string url); 
   }
 }

@@ -24,13 +24,31 @@
             <Button Height="25" Margin="2" Padding="5 3 5 3" Command="{Binding SendRequestCommand}">Send</Button>
         </StackPanel>
         <StackPanel Grid.Row="1" HorizontalAlignment="Center">
-            <TextBlock>Response: </TextBlock>
-            <TextBox IsReadOnly="True" 
-                     Height="200" 
-                     Width="300"
-                     Text="{Binding ResponseBody}"
-                     VerticalScrollBarVisibility="Auto"
-                     HorizontalScrollBarVisibility="Auto"/>
+            <!--<TextBox Height="200" 
+                     IsReadOnly="{Binding IsReadOnlyResponseText}"
+                    Width="300"
+                    Text="{Binding ResponseBody}"
+                    VerticalScrollBarVisibility="Auto"
+                    HorizontalScrollBarVisibility="Auto"/>-->
+            <TabControl Height="220" Width="320"  SelectedItem="{Binding SelectedTab}">
+                <TabItem Header = "Body" >
+                    <TextBox Height="200" 
+                             Width="300"
+                             IsReadOnly="{Binding IsReadOnlyResponseText}"
+                             Text="{Binding ResponseBody}"
+                             VerticalScrollBarVisibility="Auto"
+                             HorizontalScrollBarVisibility="Auto"/>
+                </TabItem >
+                <TabItem Header="Result">
+                    <TextBox IsReadOnly="True" 
+                            Height="200" 
+                            Width="300"
+                            Text="{Binding Result}"
+                            VerticalScrollBarVisibility="Auto"
+                            HorizontalScrollBarVisibility="Auto"/>
+                </TabItem>
+            </TabControl>
+            
             <Button Content="Copy" 
                     Width="50"
                     HorizontalAlignment="Right"

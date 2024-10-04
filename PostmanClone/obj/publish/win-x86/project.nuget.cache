@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "XAS3KiVNjDrfLOWRRnyAu2RTXJae8R/stsPbhWrWBajPgjleLLjGj8xrfUIASwiKFaJNVOGt9zXlDgxf+nTj9w==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\SESA636891\\Documents\\PostmanCloneApp\\PostmanClone\\PostmanClone.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\SESA636891\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x86\\7.0.12\\microsoft.netcore.app.runtime.win-x86.7.0.12.nupkg.sha512",
+    "C:\\Users\\SESA636891\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x86\\7.0.12\\microsoft.windowsdesktop.app.runtime.win-x86.7.0.12.nupkg.sha512",
+    "C:\\Users\\SESA636891\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x86\\7.0.12\\microsoft.aspnetcore.app.runtime.win-x86.7.0.12.nupkg.sha512"
+  ],
+  "logs": []
+}

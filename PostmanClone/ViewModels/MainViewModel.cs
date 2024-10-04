@@ -10,8 +10,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using PostmanClone.Utilities;
-using PostmanClone.Request; 
+using PostmanClone.Request;
 using System.Windows;
+using System.Net.Http;
 
 namespace PostmanClone.ViewModels
 {
@@ -22,6 +23,20 @@ namespace PostmanClone.ViewModels
     public event NotifyCollectionChangedEventHandler? CollectionChanged;
     public event PropertyChangedEventHandler? PropertyChanged;
     private string _requestUrl;
+
+    private bool _isReadOnlyResponseText; 
+    public bool IsReadOnlyResponseText 
+    {
+      get => _isReadOnlyResponseText;
+      set
+      {
+        if (_isReadOnlyResponseText != value)
+        {
+          _isReadOnlyResponseText = value;
+          OnPropertyChanged(nameof(IsReadOnlyResponseText)); 
+        }
+      }
+    }
     public string RequestUrl
     {
       get => _requestUrl;
@@ -31,7 +46,6 @@ namespace PostmanClone.ViewModels
         {
           _requestUrl = value;
           OnPropertyChanged(nameof(RequestUrl));
-          CommandManager.InvalidateRequerySuggested();
         }
       }
     }
@@ -46,6 +60,15 @@ namespace PostmanClone.ViewModels
         {
           _selectedRequestType = value;
           OnPropertyChanged(nameof(SelectedRequestType));
+          if (_selectedRequestType == "GET")
+          {
+            IsReadOnlyResponseText = true;
+            ResponseBody = ""; 
+          }
+          else
+          {
+            IsReadOnlyResponseText = false;
+          }
         }
       }
     }
@@ -62,6 +85,20 @@ namespace PostmanClone.ViewModels
         }
       }
     }
+    //private string _selectedTab;
+    //public string SelectedTab
+    //{
+    //  get => _selectedTab;
+    //  set
+    //  {
+    //    if (_selectedTab != value)
+    //    {
+    //      _selectedTab = value;
+    //      OnPropertyChanged(nameof(SelectedTab));
+    //    }
+    //  }
+    //}
+
     private string _responseBody;
     public string ResponseBody
     {
@@ -75,6 +112,21 @@ namespace PostmanClone.ViewModels
         }
       }
     }
+
+    private string _result;
+    public string Result
+    {
+      get => _result;
+      set
+      {
+        if (_result != value)
+        {
+          _result = value;
+          OnPropertyChanged(nameof(Result));
+        }
+      }
+    }
+
 
     private readonly IAPIaccess api;
     #endregion Properties
@@ -97,25 +149,33 @@ namespace PostmanClone.ViewModels
         );
 
       _selectedRequestType = RequestType.GET.ToString();
-
+      _requestUrl = string.Empty;
+      _isReadOnlyResponseText = true;
+      _responseBody = string.Empty; 
+      _result = string.Empty; 
 
       SendRequestCommand = new RelayCommand(
           async (_) =>
           {
-
-            if (!api.IsValidUrl(_requestUrl))
-            {
-              MessageBox.Show("Invalid URL..");
-              return; 
-            }
-
             try
             {
-              ResponseBody = await api.getRequest
+              if (!api.IsValidUrl(_requestUrl))
+                throw new Exception("Invalid URL...");
+              
+              StringContent data = new StringContent
               (
-                _requestUrl, 
-              RequestType.GET
+                _responseBody, 
+                Encoding.UTF8, 
+                "application/json"
+                );
+
+              Result = await api.makeRequest
+              (
+                _requestUrl,
+                data,
+              (RequestType)Enum.Parse(typeof(RequestType),_selectedRequestType)
               );
+              //SelectedTab = "Result";
             }
             catch (Exception ex)
             {
@@ -130,7 +190,7 @@ namespace PostmanClone.ViewModels
       CopyToClipboardCommand = new RelayCommand(
         (_) =>
         {
-          Clipboard.SetText(_responseBody);
+          Clipboard.SetText(Result);
         });
     }
 
