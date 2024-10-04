@@ -3,11 +3,9 @@ C:\Users\SESA636891\Documents\PostmanCloneApp\PostmanClone\bin\Debug\net7.0-wind
 C:\Users\SESA636891\Documents\PostmanCloneApp\PostmanClone\bin\Debug\net7.0-windows\PostmanClone.runtimeconfig.json
 C:\Users\SESA636891\Documents\PostmanCloneApp\PostmanClone\bin\Debug\net7.0-windows\PostmanClone.dll
 C:\Users\SESA636891\Documents\PostmanCloneApp\PostmanClone\bin\Debug\net7.0-windows\PostmanClone.pdb
-C:\Users\SESA636891\Documents\PostmanCloneApp\PostmanClone\obj\Debug\net7.0-windows\MainWindow.g.cs
 C:\Users\SESA636891\Documents\PostmanCloneApp\PostmanClone\obj\Debug\net7.0-windows\App.g.cs
 C:\Users\SESA636891\Documents\PostmanCloneApp\PostmanClone\obj\Debug\net7.0-windows\PostmanClone_MarkupCompile.cache
 C:\Users\SESA636891\Documents\PostmanCloneApp\PostmanClone\obj\Debug\net7.0-windows\PostmanClone_MarkupCompile.lref
-C:\Users\SESA636891\Documents\PostmanCloneApp\PostmanClone\obj\Debug\net7.0-windows\MainWindow.baml
 C:\Users\SESA636891\Documents\PostmanCloneApp\PostmanClone\obj\Debug\net7.0-windows\PostmanClone.g.resources
 C:\Users\SESA636891\Documents\PostmanCloneApp\PostmanClone\obj\Debug\net7.0-windows\PostmanClone.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\SESA636891\Documents\PostmanCloneApp\PostmanClone\obj\Debug\net7.0-windows\PostmanClone.AssemblyInfoInputs.cache
@@ -18,3 +16,5 @@ C:\Users\SESA636891\Documents\PostmanCloneApp\PostmanClone\obj\Debug\net7.0-wind
 C:\Users\SESA636891\Documents\PostmanCloneApp\PostmanClone\obj\Debug\net7.0-windows\PostmanClone.pdb
 C:\Users\SESA636891\Documents\PostmanCloneApp\PostmanClone\obj\Debug\net7.0-windows\PostmanClone.genruntimeconfig.cache
 C:\Users\SESA636891\Documents\PostmanCloneApp\PostmanClone\obj\Debug\net7.0-windows\ref\PostmanClone.dll
+C:\Users\SESA636891\Documents\PostmanCloneApp\PostmanClone\obj\Debug\net7.0-windows\Views\MainWindow.g.cs
+C:\Users\SESA636891\Documents\PostmanCloneApp\PostmanClone\obj\Debug\net7.0-windows\Views\MainWindow.baml
