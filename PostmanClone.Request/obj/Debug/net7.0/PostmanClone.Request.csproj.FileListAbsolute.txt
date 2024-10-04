@@ -1,0 +1,11 @@
+C:\Users\SESA636891\Documents\PostmanCloneApp\PostmanClone.Request\bin\Debug\net7.0\PostmanClone.Request.deps.json
+C:\Users\SESA636891\Documents\PostmanCloneApp\PostmanClone.Request\bin\Debug\net7.0\PostmanClone.Request.dll
+C:\Users\SESA636891\Documents\PostmanCloneApp\PostmanClone.Request\bin\Debug\net7.0\PostmanClone.Request.pdb
+C:\Users\SESA636891\Documents\PostmanCloneApp\PostmanClone.Request\obj\Debug\net7.0\PostmanClone.Request.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\SESA636891\Documents\PostmanCloneApp\PostmanClone.Request\obj\Debug\net7.0\PostmanClone.Request.AssemblyInfoInputs.cache
+C:\Users\SESA636891\Documents\PostmanCloneApp\PostmanClone.Request\obj\Debug\net7.0\PostmanClone.Request.AssemblyInfo.cs
+C:\Users\SESA636891\Documents\PostmanCloneApp\PostmanClone.Request\obj\Debug\net7.0\PostmanClone.Request.csproj.CoreCompileInputs.cache
+C:\Users\SESA636891\Documents\PostmanCloneApp\PostmanClone.Request\obj\Debug\net7.0\PostmanClone.Request.dll
+C:\Users\SESA636891\Documents\PostmanCloneApp\PostmanClone.Request\obj\Debug\net7.0\refint\PostmanClone.Request.dll
+C:\Users\SESA636891\Documents\PostmanCloneApp\PostmanClone.Request\obj\Debug\net7.0\PostmanClone.Request.pdb
+C:\Users\SESA636891\Documents\PostmanCloneApp\PostmanClone.Request\obj\Debug\net7.0\ref\PostmanClone.Request.dll

@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    "net7.0-windows7.0": {}
+    "net7.0-windows7.0": {
+      "PostmanClone.Request/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/PostmanClone.Request.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/PostmanClone.Request.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "PostmanClone.Request/1.0.0": {
+      "type": "project",
+      "path": "../PostmanClone.Request/PostmanClone.Request.csproj",
+      "msbuildProject": "../PostmanClone.Request/PostmanClone.Request.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net7.0-windows7.0": []
+    "net7.0-windows7.0": [
+      "PostmanClone.Request >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\SESA636891\\.nuget\\packages\\": {}
@@ -33,7 +52,11 @@
       "frameworks": {
         "net7.0-windows7.0": {
           "targetAlias": "net7.0-windows",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\SESA636891\\Documents\\PostmanCloneApp\\PostmanClone.Request\\PostmanClone.Request.csproj": {
+              "projectPath": "C:\\Users\\SESA636891\\Documents\\PostmanCloneApp\\PostmanClone.Request\\PostmanClone.Request.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

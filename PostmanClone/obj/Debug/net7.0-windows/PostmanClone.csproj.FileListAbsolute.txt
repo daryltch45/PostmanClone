@@ -18,3 +18,7 @@ C:\Users\SESA636891\Documents\PostmanCloneApp\PostmanClone\obj\Debug\net7.0-wind
 C:\Users\SESA636891\Documents\PostmanCloneApp\PostmanClone\obj\Debug\net7.0-windows\ref\PostmanClone.dll
 C:\Users\SESA636891\Documents\PostmanCloneApp\PostmanClone\obj\Debug\net7.0-windows\Views\MainWindow.g.cs
 C:\Users\SESA636891\Documents\PostmanCloneApp\PostmanClone\obj\Debug\net7.0-windows\Views\MainWindow.baml
+C:\Users\SESA636891\Documents\PostmanCloneApp\PostmanClone\bin\Debug\net7.0-windows\PostmanClone.Request.dll
+C:\Users\SESA636891\Documents\PostmanCloneApp\PostmanClone\bin\Debug\net7.0-windows\PostmanClone.Request.pdb
+C:\Users\SESA636891\Documents\PostmanCloneApp\PostmanClone\obj\Debug\net7.0-windows\PostmanClone.csproj.AssemblyReference.cache
+C:\Users\SESA636891\Documents\PostmanCloneApp\PostmanClone\obj\Debug\net7.0-windows\PostmanClone.csproj.CopyComplete

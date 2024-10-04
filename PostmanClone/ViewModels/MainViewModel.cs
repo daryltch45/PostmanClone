@@ -13,6 +13,7 @@ using PostmanClone.Utilities;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Windows;
+using PostmanClone.Request;
 
 namespace PostmanClone.ViewModels
 {
@@ -63,8 +64,6 @@ namespace PostmanClone.ViewModels
         }
       }
     }
-    public HttpClient httpClient { get; set; }
-
     private string _responseBody;
     public string ResponseBody
     {
@@ -78,6 +77,8 @@ namespace PostmanClone.ViewModels
         }
       }
     }
+
+    private readonly APIaccess api; 
     #endregion Properties
 
 
@@ -98,18 +99,17 @@ namespace PostmanClone.ViewModels
 
       _selectedRequestType = RequestType.GET.ToString();
 
-      httpClient = new HttpClient();
+      api = new(); 
 
       SendRequestCommand = new RelayCommand(
-          async (e) =>
+          async (_) =>
           {
 
             if (!string.IsNullOrEmpty(_requestUrl))
             {
               try
               {
-                ResponseBody = await getRequest(_requestUrl);
-                //getRequest(_requestUrl);
+                ResponseBody = await api.getRequest(_requestUrl);
               }
               catch (Exception ex)
               {
@@ -126,7 +126,7 @@ namespace PostmanClone.ViewModels
         );
 
       CopyToClipboardCommand = new RelayCommand(
-        (e) =>
+        (_) =>
         {
           Clipboard.SetText(_responseBody);
         });
@@ -135,22 +135,7 @@ namespace PostmanClone.ViewModels
 
     #region Fonctions
     private void CreateCommands() { }
-    private async Task<string> getRequest(string url)
-    {
-      try
-      {
-        HttpResponseMessage response = await httpClient.GetAsync(url);
-
-        string responseData = await response.Content.ReadAsStringAsync();
-
-        return responseData;
-      }
-      catch (HttpRequestException e)
-      {
-        return "Request Error";
-      }
-
-    }
+   
 
 
     protected void OnPropertyChanged([CallerMemberName] string propertyName = null)

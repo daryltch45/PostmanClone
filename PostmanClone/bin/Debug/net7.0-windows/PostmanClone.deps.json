@@ -7,14 +7,27 @@
   "targets": {
     ".NETCoreApp,Version=v7.0": {
       "PostmanClone/1.0.0": {
+        "dependencies": {
+          "PostmanClone.Request": "1.0.0"
+        },
         "runtime": {
           "PostmanClone.dll": {}
+        }
+      },
+      "PostmanClone.Request/1.0.0": {
+        "runtime": {
+          "PostmanClone.Request.dll": {}
         }
       }
     }
   },
   "libraries": {
     "PostmanClone/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "PostmanClone.Request/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
