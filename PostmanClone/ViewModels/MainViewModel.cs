@@ -82,6 +82,8 @@ namespace PostmanClone.ViewModels
 
 
     #region Commands
+
+    public ICommand CopyToClipboardCommand { get;  }
     public ICommand SendRequestCommand
     {
       get;
@@ -106,7 +108,7 @@ namespace PostmanClone.ViewModels
             {
               try
               {
-                ResponseBody = await getRequest(_requestUrl); 
+                ResponseBody = await getRequest(_requestUrl);
                 //getRequest(_requestUrl);
               }
               catch (Exception ex)
@@ -122,18 +124,23 @@ namespace PostmanClone.ViewModels
           }
 
         );
+
+      CopyToClipboardCommand = new RelayCommand(
+        (e) =>
+        {
+          Clipboard.SetText(_responseBody);
+        });
     }
 
 
     #region Fonctions
-
+    private void CreateCommands() { }
     private async Task<string> getRequest(string url)
     {
       try
       {
         HttpResponseMessage response = await httpClient.GetAsync(url);
 
-        //response.EnsureSuccessStatusCode(); 
         string responseData = await response.Content.ReadAsStringAsync();
 
         return responseData;

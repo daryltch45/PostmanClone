@@ -31,6 +31,10 @@
                      Text="{Binding ResponseBody}"
                      VerticalScrollBarVisibility="Auto"
                      HorizontalScrollBarVisibility="Auto"/>
+            <Button Content="Copy" 
+                    Width="50"
+                    HorizontalAlignment="Right"
+                    Command="{Binding CopyToClipboardCommand}"/>
         </StackPanel>
     </Grid>
 </Window>
